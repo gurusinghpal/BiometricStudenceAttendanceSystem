@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <title>Login</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://img.freepik.com/premium-vector/geometric-gradient-technology-background_23-2149110132.jpg');
+            /* Add your image URL here */
+            background-size: cover;
+            /* Cover the whole page */
+            background-position: center;
+            /* Center the background image */
+        }
+
+        .login-container {
+            min-width: 300px;
+            padding: 40px;
+            background-color: rgb(222, 234, 252);
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .password-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .login-container input[type="password"] {
+            width: calc(100% - 40px);
+            /* Adjust width to prevent icon overlap */
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding-right: 30px;
+            /* Make space for the icon */
+        }
+
+        .password-icon {
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+        }
+
+
+        .login-container input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-container input[type="submit"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .login-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        h2 {
+            margin: 0 0 20px 0;
+            color: #333;
+        }
+
+        p {
+            color: #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form action="" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <div class="password-container">
+                <input type="password" name="password" placeholder="Password" id="password" required>
+                <i class="fas fa-eye password-icon" onclick="togglePasswordVisibility()"></i>
+            </div>
+            <input type="submit" value="Login">
+        </form>
+        
+    </div>
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var passStatus = document.querySelector(".password-icon");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                passStatus.classList.remove("fa-eye");
+                passStatus.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                passStatus.classList.remove("fa-eye-slash");
+                passStatus.classList.add("fa-eye");
+            }
+        }
+    </script>
+</body>
+
+</html>
