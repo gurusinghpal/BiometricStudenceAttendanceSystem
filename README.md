@@ -27,7 +27,7 @@ The Biometric Student Attendance System is a web-based application that utilizes
 
 1. **Clone the repository**
     ```bash
-    git clone [https://github.com/gurusinghpal/BiometricStudenceAttendanceSystem](https://github.com/gurusinghpal/BiometricStudenceAttendanceSystem).git
+    git clone [https://github.com/gurusinghpal/BiometricStudenceAttendanceSystem] (https://github.com/gurusinghpal/BiometricStudenceAttendanceSystem).git
     cd BiometricAttendanceSystem
     ```
 
